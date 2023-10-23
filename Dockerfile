@@ -3,7 +3,7 @@ ARG CUDNN_VERSION=8
 ARG UBUNTU_VERSION=20.04
 
 FROM nvidia/cuda:${CUDA_VERSION}-cudnn${CUDNN_VERSION}-devel-ubuntu${UBUNTU_VERSION}
-LABEL mantainer="  github.com/Fizmath   < boy.cosmic@yandex.by >    "
+LABEL mantainer="  github.com/mzeeshankaramat   < zeeshan.karamatsatti@gmail.com >    "
 
 ARG PYTHON_VERSION=3.8
 ARG OPENCV_VERSION=4.7.0
@@ -143,6 +143,26 @@ RUN cd /opt/ &&\
     make install && \
     ldconfig &&\
     rm -rf /opt/opencv-${OPENCV_VERSION} && rm -rf /opt/opencv_contrib-${OPENCV_VERSION}
+
+RUN apt-get install -y qml-module-qtquick2 qml-module-qtquick-controls2 qml-module-qtquick-window2
+RUN apt-get install -y qml-module-qtquick-virtualkeyboard
+RUN apt-get install -y qtvirtualkeyboard-plugin
+RUN apt-get install -y qml-module-qt-labs-qmlmodels
+RUN apt-get install -y qml-module-qtmultimedia
+RUN apt-get install -y qml-module-qt-labs-settings
+RUN apt-get install -y qml-module-qt-labs-folderlistmodel qml-module-qtquick-layouts
+
+RUN pip3 install torch torchvision torchaudio
+RUN pip3 install pandas
+RUN pip3 install tqdm
+RUN pip3 install PyYAML
+RUN pip3 install matplotlib
+RUN pip3 install seaborn
+RUN pip3 install scipy
+RUN pip3 install gdown
+RUN pip3 install tensorboard
+RUN pip3 install easydict
+
 
 ENV NVIDIA_DRIVER_CAPABILITIES all
 ENV XDG_RUNTIME_DIR "/tmp"
