@@ -27,7 +27,7 @@ Pull the image from here :
 
     ```
     $ docker run --gpus all -it --rm  zeeshankaramat25/gstreamer-opencv-docker:latest
-    root@22067ad0cc87:/myapp#  
+    root@vrlap05:/myapp#  
     ```
 
 - With CPU :
@@ -35,7 +35,7 @@ Pull the image from here :
     If no GPU available on your machine, yet you can use the container with [Docker](https://docs.docker.com/engine/install/)
     ```
     $ docker run -it --rm zeeshankaramat25/gstreamer-opencv-docker:latest
-    root@cc00562d816e:/myapp# 
+    root@vrlap05:/myapp# 
     ```
 
 ## Inspect the GStreamer API out of the OpenCV wrapper 
