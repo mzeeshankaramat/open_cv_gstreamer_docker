@@ -1,4 +1,4 @@
-#  GPU-accelerated Docker container with OpenCV 4.5, Python 3.8 and GStreamer 
+#  GPU-accelerated Docker container with OpenCV 4.7, Python 3.8 and GStreamer 
 
 - [opencv](https://github.com/opencv/opencv) + [opencv_contrib](https://github.com/opencv/opencv_contrib)
 - Python 3.8.0
