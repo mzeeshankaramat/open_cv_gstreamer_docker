@@ -39,27 +39,37 @@ Pull the image from here :
     ```
 
 ## Inspect the GStreamer API out of the OpenCV wrapper 
-
+### Test gst with test src
 Type into the container's shell :
 
 ```sh
-root@1be1f7efabf9:/myapp# gst-launch-1.0 videotestsrc ! videoconvert ! autovideosink
+root@vrlap05:/myapp# gst-launch-1.0 videotestsrc ! videoconvert ! autovideosink
 ```
 then a  GStreamer hello world window pops up . See the [documentation](https://gstreamer.freedesktop.org/documentation/tutorials/basic/gstreamer-tools.html?gi-language=python).
 
  <img src=gstream.png width="200" height="200">
+
+### Test gst with webcam
+Type into the container's shell :
+
+```sh
+root@vrlap05:/myapp# gst-launch-1.0 v4l2src ! videoconvert ! autovideosink
+```
+you can switch between multiple cams using v412src device argument: v4l2src device=/dev/video0
+
+ <img src=image.png width="720" height="480">
 
 ## OpenCV and  GStreamer debugging
 
 Export OpenCV  [Log Levels ](https://docs.opencv.org/4.5.0/da/db0/namespacecv_1_1utils_1_1logging.html) or GStreamer [Debug Levels](https://gstreamer.freedesktop.org/documentation/tutorials/basic/debugging-tools.html?gi-language=python) into our container's shell . For example:
 
 ```sh
-root@1be1f7efabf9:/myapp# export OPENCV_LOG_LEVEL=INFO 
+root@vrlap05:/myapp# export OPENCV_LOG_LEVEL=INFO 
 ```
 or
 
 ```sh
-root@1be1f7efabf9:/myapp# export GST_DEBUG=2
+root@vrlap05:/myapp# export GST_DEBUG=2
 ```
 
 then run one of the examples and browse the output.
@@ -71,5 +81,4 @@ You may modify, upgrade and build a proper one for your requirements :
 ```bash
 $ docker build -f Dockerfile -t <name>:<tag> .
 ```
-It won't be that straight-forward, you will get some deprecation warnings and compatibility issues. <br /> To keep the image light-weight and compatible with old GPU architectures `SM_30 , SM_35 , SM_37` I implanted ``10.2-cudnn7-devel-ubuntu18.04`` as base 
-image . 
+It won't be that straight-forward, you will get some deprecation warnings and compatibility issues. <br />  
