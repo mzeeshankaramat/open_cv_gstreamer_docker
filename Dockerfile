@@ -153,6 +153,7 @@ RUN apt-get install -y qml-module-qt-labs-settings
 RUN apt-get install -y qml-module-qt-labs-folderlistmodel qml-module-qtquick-layouts
 RUN apt-get install -y libqt5multimedia5-plugins
 RUN apt-get install -y ffmpeg
+RUN apt-get install -y network-manager
 
 RUN pip3 install torch torchvision torchaudio
 RUN pip3 install pandas
